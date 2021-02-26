@@ -1,16 +1,13 @@
 import os
 
-from ..base import Session
-
 
 class ApiAccessor:
 
-    session: Session
     url: str
 
     def __get__(self, instance, owner):
         if instance:
-            self.session = instance.session
+            self.session = instance
         return self
 
     def _endpoint(self, *args):
