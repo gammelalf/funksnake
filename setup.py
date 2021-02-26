@@ -4,6 +4,9 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = fh.read().splitlines()
+
 
 setuptools.setup(
     name="funksnake",
@@ -21,4 +24,5 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(),
     python_requires='>=3.6',
+    install_requires=requirements
 )
