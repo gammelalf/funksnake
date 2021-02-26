@@ -1,13 +1,6 @@
-import os
-from enum import Enum
-
 import aiohttp
 
-
-class Visibility(Enum):
-    ME = "me"
-    INSTANCE = "instance"
-    EVERYONE = "everyone"
+from funksnake.enums import Visibility
 
 
 class Session:

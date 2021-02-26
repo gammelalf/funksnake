@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from ..base import Visibility
+from funksnake.enums import Visibility
 from .base import *
 
 
