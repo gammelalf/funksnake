@@ -10,7 +10,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="funksnake",
-    version="0.0.2",
+    version="0.0.3",
     author="Wolfgang Fischer",
     author_email="31348226+gammelalf@users.noreply.github.com",
     description="Python wrapper for funkwhale api",
