@@ -72,7 +72,7 @@ class FavoritesAccessor(ListAccessor):
 
     url = "/api/v1/favorites/tracks/"
 
-    def add(self, track):
+    async def add(self, track):
         return await self.session.request(
             "post", self._endpoint(),
             data={
@@ -80,7 +80,7 @@ class FavoritesAccessor(ListAccessor):
             }
         )
 
-    def remove(self, track):
+    async def remove(self, track):
         return await self.session.request(
             "post", self._endpoint("remove"),
             data={

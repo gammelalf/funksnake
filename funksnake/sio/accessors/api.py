@@ -54,9 +54,10 @@ class UploadsAccessor(ListAccessor, GetAccessor, NewAccessor, UpdateAccessor, De
                 "library": library,
                 "import_reference": ref or f"funksnake-import-{datetime.now().isoformat()}",
                 "source": f"upload://{os.path.basename(path)}",
+            },
+            files={
                 "audio_file": open(path, "rb"),
             },
-            timeout=0
         )
 
     def metadata(self, identifier):
