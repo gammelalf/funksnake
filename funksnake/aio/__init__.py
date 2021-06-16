@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 import aiohttp
 
 from .accessors.api import *
@@ -53,4 +55,7 @@ class Funkwhale:
 
         response = await getattr(self.session, method)(full_url, *args, **kwargs)
         response.raise_for_status()
-        return await response.json()
+        try:
+            return await response.json()
+        except JSONDecodeError:
+            return await response.text()

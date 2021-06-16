@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 import requests
 
 from .accessors.api import *
@@ -43,4 +45,8 @@ class Funkwhale:
 
         response = getattr(requests, method)(full_url, *args, **kwargs)
         response.raise_for_status()
-        return response.json()
+        try:
+            return response.json()
+        # /libraries/fs_import returns an empty string
+        except JSONDecodeError:
+            return response.text

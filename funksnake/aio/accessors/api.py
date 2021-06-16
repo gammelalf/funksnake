@@ -43,6 +43,17 @@ class LibraryAccessor(ListAccessor, GetAccessor, NewAccessor, UpdateAccessor, De
             }
         )
 
+    async def fs_import(self, library, path="", ref=None):
+        return await self.session.request(
+            "post",
+            self._endpoint("fs-import"),
+            data={
+                "library": library,
+                "import_reference": ref or f"funksnake-import-{datetime.now().isoformat()}",
+                "path": path,
+            }
+        )
+
 
 class UploadsAccessor(ListAccessor, GetAccessor, NewAccessor, UpdateAccessor, DeleteAccessor):
 
